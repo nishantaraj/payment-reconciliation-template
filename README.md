@@ -61,7 +61,7 @@ idempotency check is the part I actually care about demonstrating.
 
 The real-world version of this problem, the reminder cadence, how I measured it, and what I would
 change, is written up without code or company data in
-[Application-To-Payment-Journey](https://github.com/nishantaraaj-prog/case-studies/blob/main/04-Product/Application-To-Payment-Journey.md).
+[Application-To-Payment-Journey](https://github.com/nishantaraj/case-studies/blob/main/04-Product/Application-To-Payment-Journey.md).
 
 ## What I'd add next
 
