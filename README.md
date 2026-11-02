@@ -23,16 +23,14 @@ this harder than a simple join:
   idempotent design means replaying the same event twice never creates a duplicate payment or a
   double-counted application.
 
-## What's here
+## Folder map
 
-| File | Purpose |
+| Folder | What is in it |
 |---|---|
-| `schema.sql` | A minimal schema: raw inbound landing table, applications, payments, refunds, reminder events |
-| `reconcile.py` | Loads sample applications and sample webhook payloads, matches them, and writes a reconciliation report |
-| `funnel_analysis.py` | Reads reminder-stage events and reports conversion per stage |
-| `sample_applications.csv` | Invented applicant records |
-| `sample_webhook_events.json` | Invented payment-provider webhook payloads, metadata included |
-| `sample_reminder_events.csv` | Invented reminder sends and the payments that followed (or didn't) |
+| `Sql/` | `Schema.sql`: raw inbound landing table, applications, payments, refunds, reminder events |
+| `Src/` | `reconcile.py` matches payments to applications. `funnel_analysis.py` reports conversion per reminder stage |
+| `Sample-Data/` | Invented applicants, payment-provider webhook payloads (metadata included), and reminder sends |
+| `Reports/` | Output from a run lands here. Ignored by git |
 
 ## How the matching works
 
@@ -51,19 +49,19 @@ this harder than a simple join:
 
 ```bash
 pip install -r requirements.txt
-python reconcile.py        # builds reconciliation.db and reconciliation_report.csv from the sample data
-python funnel_analysis.py  # reads sample_reminder_events.csv and prints conversion per stage
+python Src/reconcile.py        # builds Reports/reconciliation.db and Reports/reconciliation_report.csv
+python Src/funnel_analysis.py  # reads Sample-Data/Reminder-Events.csv and prints conversion per stage
 ```
 
-Run `python reconcile.py` twice in a row. The report is identical both times, nothing is
+Run `python Src/reconcile.py` twice in a row. The report is identical both times, nothing is
 double-counted, and the second run's log says how many events were already-seen no-ops. That
 idempotency check is the part I actually care about demonstrating.
 
 ## A note on the companion case study
 
-The real-world version of this problem, the actual reminder cadence, actual conversion numbers, and
-what I changed after the first few months, is written up (without code or company data) in
-[case-studies/02-application-to-payment-journey.md](https://github.com/nishantaraaj-prog/case-studies/blob/main/02-application-to-payment-journey.md).
+The real-world version of this problem, the reminder cadence, how I measured it, and what I would
+change, is written up without code or company data in
+[Application-To-Payment-Journey](https://github.com/nishantaraaj-prog/case-studies/blob/main/04-Product/Application-To-Payment-Journey.md).
 
 ## What I'd add next
 
