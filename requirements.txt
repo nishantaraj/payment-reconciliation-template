@@ -1,0 +1,3 @@
+# No third-party dependencies -- sqlite3, csv, and json are all in the
+# Python standard library. This file exists so `pip install -r requirements.txt`
+# works as documented, and so adding a real dependency later has a home.

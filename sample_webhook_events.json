@@ -1,0 +1,60 @@
+[
+  {
+    "id": "evt_fake_0001",
+    "type": "payment_intent.succeeded",
+    "provider": "stripe",
+    "amount": 15000,
+    "currency": "inr",
+    "created": "2026-09-01T12:30:00Z",
+    "metadata": { "application_id": "APP-1001", "program_code": "PROG-LEAD-01" }
+  },
+  {
+    "id": "evt_fake_0002",
+    "type": "payment_intent.succeeded",
+    "provider": "stripe",
+    "amount": 15000,
+    "currency": "inr",
+    "created": "2026-09-02T09:05:00Z",
+    "metadata": { "application_id": "APP-1002", "program_code": "PROG-LEAD-01" }
+  },
+  {
+    "id": "evt_fake_0003",
+    "type": "payment_intent.succeeded",
+    "provider": "stripe",
+    "amount": 22000,
+    "currency": "inr",
+    "created": "2026-09-05T10:00:00Z",
+    "metadata": { "application_id": "APP-1003", "program_code": "PROG-DATA-02" }
+  },
+  {
+    "id": "evt_fake_0003",
+    "type": "payment_intent.succeeded",
+    "provider": "stripe",
+    "amount": 22000,
+    "currency": "inr",
+    "created": "2026-09-05T10:00:00Z",
+    "metadata": { "application_id": "APP-1003", "program_code": "PROG-DATA-02" },
+    "_note": "duplicate of evt_fake_0003, simulates a retried webhook delivery"
+  },
+  {
+    "id": "evt_fake_0004",
+    "type": "bank_transfer.recorded",
+    "provider": "manual_entry",
+    "amount": 15000,
+    "currency": "inr",
+    "created": "2026-09-06T15:40:00Z",
+    "metadata": {},
+    "payer_name_hint": "Samuel Okafor",
+    "organization_hint": "Riverside College"
+  },
+  {
+    "id": "evt_fake_0005",
+    "type": "payment_intent.succeeded",
+    "provider": "stripe",
+    "amount": 22000,
+    "currency": "inr",
+    "created": "2026-09-08T08:15:00Z",
+    "metadata": { "application_id": "APP-1099", "program_code": "PROG-DATA-02" },
+    "_note": "application_id does not exist in sample_applications.csv -- an unmatched row on purpose"
+  }
+]
