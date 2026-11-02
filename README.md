@@ -6,7 +6,7 @@ without manual spreadsheet work.
 
 This is original code written for this repo. It is not the system I run at work — the real one
 reads from a central Postgres database behind role-based access, and the business rules (which
-programs, which currencies, which reminder cadence) belong to my employer. This template keeps the
+programmes, which currencies, which reminder cadence) belong to my employer. This template keeps the
 shape of the problem and throws away everything specific to any one company, using invented sample
 data.
 
@@ -34,7 +34,7 @@ this harder than a simple join:
 
 ## How the matching works
 
-1. Every checkout is created with the application's ID and a program code written into the payment
+1. Every checkout is created with the application's ID and a programme code written into the payment
    provider's `metadata` field. This is the cheap, reliable join key, and it costs nothing at
    checkout time.
 2. `reconcile.py` tries the metadata match first. If a payload arrives without usable metadata (an
